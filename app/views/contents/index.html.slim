@@ -1,0 +1,16 @@
+
+.container
+  table.table-content
+    - if @gists.present?
+      - @gists.each do |gist|
+        tr
+          td.title_gist
+            = link_to gist.title, {action: :show, id: gist.id}
+          td.buttons
+            = link_to 'Show gist', {action: :show, id: gist.id}, class: 'btn btn-success new_gist'
+            = link_to 'Edit gist', {action: :edit, id: gist.id}, class: 'btn btn-default new_gist'
+            = link_to 'Delete gist', {action: :destroy, id: gist.id}, class: 'btn btn-danger new_gist', method: :delete
+    - else
+      .no_gists
+        = "No gists"
+

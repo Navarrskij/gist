@@ -1,0 +1,23 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to "<i class='fa fa-history'> </i> Gist".html_safe, root_path, class: 'navbar-brand' %>
+      <% if current_user %>
+        <%= link_to "Create gist", new_content_path, class: 'btn btn-success new_gist' %>
+      <% end %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <%= link_to 'Edit profile', edit_user_registration_path, class: 'btn btn-info new_gist' %>
+          <%= link_to 'Sign out', destroy_user_session_path, class: 'btn btn-info new_gist', method: :delete %>
+        <% else %>
+          <%= link_to "Sign in", new_user_session_path, class: 'btn btn-info new_gist' %>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

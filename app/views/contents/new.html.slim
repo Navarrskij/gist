@@ -1,0 +1,9 @@
+  .container
+
+    = simple_form_for @content do |f|
+      = f.error_notification
+      .form-inputs
+        = f.input :title, placeholder: "Title", label: false, required: true
+        = f.input :body, :input_html => {:rows => 15}, placeholder: "Input text here", label: false
+      .form-actions
+        = f.button :submit
