@@ -1,6 +1,16 @@
 .container
+  .gist
   .form.form_show
     div.title
       = @gist.title
     textarea#code_area
       = @gist.body
+  .comments
+    = render partial: 'comments/comments',  locals: { gist: @gist, comments: @gist.comments}
+  #comment_area
+    = simple_form_for [@gist, @gist.comments.build], remote: true do |f|
+      = f.error_notification
+      .form-inputs
+        = f.input :body, :input_html => {:rows => 5}, placeholder: "Input comment here", label: false
+      .form-actions
+        = f.button :submit

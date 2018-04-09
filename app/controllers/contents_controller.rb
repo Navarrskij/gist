@@ -6,7 +6,7 @@ class ContentsController < ApplicationController
   end
 
   def create
-    @gist = Content.new(gist_params)
+    @gist = Content.new(gist_params.merge(user: current_user))
     @gist.save
     redirect_to @gist
   end
