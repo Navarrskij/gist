@@ -1,12 +1,13 @@
 .container
-  .gist
+  .gist*{data: {gist: @gist.id}}
   .form.form_show
     div.title
       = @gist.title
     textarea#code_area
       = @gist.body
   .comments
-    = render partial: 'comments/comments',  locals: { gist: @gist, comments: @gist.comments}
+    = hidden_field_tag 'comments_list', @gist.comments.to_json
+    = render partial: 'comments/comments',  locals: { gist: @gist, comments: @gist.comments.gist_row_nil }
   #comment_area
     = simple_form_for [@gist, @gist.comments.build], remote: true do |f|
       = f.error_notification

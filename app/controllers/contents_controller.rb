@@ -31,7 +31,7 @@ class ContentsController < ApplicationController
   private
 
   def set_gist
-    @gist = Content.find(params[:id])
+    @gist = Content.includes(:comments).find(params[:id])
   end
 
 

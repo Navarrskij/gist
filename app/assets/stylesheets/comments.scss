@@ -6,6 +6,10 @@
 //  visibility: hidden;
 //}
 
-.comment_body {
+.comment {
+  display: inline-block;
   padding: 5px;
+  margin: 5px;
+  border: 1px solid grey;
+  border-radius: 5px
 }
