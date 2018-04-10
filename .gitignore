@@ -19,7 +19,7 @@
 !/tmp/.keep
 .idea
 .idea/.generators
-config/*.yml
+
 /node_modules
 /yarn-error.log
 
