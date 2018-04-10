@@ -67,13 +67,13 @@ document.addEventListener('DOMContentLoaded', function(){
             div.appendChild(form)
             $('.CodeMirror-code').children()[numberLine - 1].append(div)
 
-            var comment_body = document.getElementById("comment_textarea")
-            CodeMirror.fromTextArea(comment_body, {
+            var commentBody = document.getElementById("comment_textarea")
+            CodeMirror.fromTextArea(commentBody, {
                 tabSize: 2,
                 autoRefresh: true,
 
             });
-            var myCodeMirror = CodeMirror.fromTextArea(comment_body);
+            var myCodeMirror = CodeMirror.fromTextArea(commentBody);
             myCodeMirror.setSize(450, 100);
             var codemirrorHide = document.querySelectorAll(".CodeMirror.cm-s-default")
             codemirrorHide[1].style.display = 'none'

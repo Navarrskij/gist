@@ -1,4 +1,4 @@
-<%- if !(@comment.gist_row == nil) %>
+<%- if !(@comment.gist_row.nil?) %>
   $($('<%= j render(partial: "comment", locals: { comment: @comment }) %>') ).appendTo($('.CodeMirror-code').children()[<%= @comment.gist_row %> - 1]);
   $('#comment_area textarea').val('');
 <%- else %>
