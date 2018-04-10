@@ -12,7 +12,7 @@
 //
 //= require rails-ujs
 //= require jquery
-//= require_tree .
+
 //= require popper
 //= require bootstrap
 //= require codemirror
@@ -20,3 +20,4 @@
 //= require codemirror/modes/javascript
 //= require codemirror/modes/ruby
 //= require contents
+//= require comments
