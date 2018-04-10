@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function(){
             form.appendChild(input2)
             var my_tb = document.createElement('TEXTAREA')
             my_tb.setAttribute("id", "comment_textarea")
-            my_tb.setAttribute("class", "form-control")
+            my_tb.classList.add("form-control")
             my_tb.setAttribute("rows", "5")
             my_tb.type = 'TEXT';
             my_tb.name = 'comment[body]';
@@ -56,13 +56,12 @@ document.addEventListener('DOMContentLoaded', function(){
             var btn = document.createElement("BUTTON")
             var t = document.createTextNode("Comment!")
             btn.appendChild(t)
-            btn.setAttribute("class", "btn btn-primary btn-sm")
+            btn.classList.add('btn', 'btn-primary', 'btn-sm')
             btn.type = 'submit'
             var btn2 = document.createElement("div")
             var t2 = document.createTextNode("Close!")
             btn2.appendChild(t2)
-            btn2.setAttribute("class", "btn btn-default btn-sm hide-form")
-            // btn2.setAttribute("class", "hideForm")
+            btn2.classList.add('btn', 'btn-default', 'btn-sm', 'hide-form')
             form.appendChild(btn)
             form.appendChild(btn2)
             div.appendChild(form)
@@ -76,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function(){
             });
             var myCodeMirror = CodeMirror.fromTextArea(comment_body);
             myCodeMirror.setSize(450, 100);
-            var codemirrorHide = document.getElementsByClassName("CodeMirror cm-s-default")
+            var codemirrorHide = document.querySelectorAll(".CodeMirror.cm-s-default")
             codemirrorHide[1].style.display = 'none'
         }
 
@@ -86,19 +85,5 @@ document.addEventListener('DOMContentLoaded', function(){
         $(document).on( "click", ".hide-form", function(event) {
             $("#comment_forms").remove()
         });
-
-        // var hideForm = document.getElementsByClassName("hide-form")
-        // hideForm.onclick = function () {
-        //   form = document.getElementById('comment_forms')
-        //   form.hide()
-        // };
-        // function hideForm () {
-        //   var form = getElementById("comment_forms")
-        //   form.hide()
-        // }
     })
-    $(document).on( "click", ".hide-form", function(event) {
-        $("#comment_forms").remove()
-    });
-
 }, false);
