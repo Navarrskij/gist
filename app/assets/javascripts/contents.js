@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', function(){
             mode: "ruby",
             theme: "rubyblue",
             autoRefresh: true,
-            tabSize : 2,
+            tabSize: 2,
+            height: 500,
             readOnly: true
         });
     }
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function(){
         CodeMirror.fromTextArea(content_body, {
             lineNumbers: true,
             mode: "ruby",
-            theme: "default",
+            theme: "rubyblue",
             autoRefresh: true,
             tabSize : 2,
         });
@@ -65,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function(){
             form.appendChild(btn)
             form.appendChild(btn2)
             div.appendChild(form)
-            $('.CodeMirror-code').children()[numberLine - 1].append(div)
+            this.parentElement.parentElement.append(div)
 
             var commentBody = document.getElementById("comment_textarea")
             CodeMirror.fromTextArea(commentBody, {
