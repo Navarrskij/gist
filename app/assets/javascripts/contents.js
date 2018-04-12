@@ -5,20 +5,19 @@ document.addEventListener('DOMContentLoaded', function(){
             lineNumbers: true,
             mode: "ruby",
             theme: "rubyblue",
-            autoRefresh: true,
             tabSize: 2,
-            height: 500,
             readOnly: true
         });
     }
 
-    var content_body = document.getElementById("content_body")
-    if (content_body) {
-        CodeMirror.fromTextArea(content_body, {
+    var contentBody = document.getElementById("content_body")
+    if (contentBody) {
+        CodeMirror.fromTextArea(contentBody, {
             lineNumbers: true,
             mode: "ruby",
             theme: "rubyblue",
             autoRefresh: true,
+            lineWrapping: true,
             tabSize : 2,
         });
     }
@@ -69,15 +68,18 @@ document.addEventListener('DOMContentLoaded', function(){
             this.parentElement.parentElement.append(div)
 
             var commentBody = document.getElementById("comment_textarea")
-            CodeMirror.fromTextArea(commentBody, {
-                tabSize: 2,
+            var myCodeMirror = CodeMirror.fromTextArea(commentBody, {
+                lineWrapping: true,
                 autoRefresh: true,
-
+                theme: "3024-day",
             });
-            var myCodeMirror = CodeMirror.fromTextArea(commentBody);
-            myCodeMirror.setSize(450, 100);
-            var codemirrorHide = document.querySelectorAll(".CodeMirror.cm-s-default")
-            codemirrorHide[1].style.display = 'none'
+            myCodeMirror.setSize(500, 100);
+
+            // var codemirrorHide = document.querySelectorAll(".CodeMirror.cm-s-default")
+            // codemirrorHide[1].style.display = 'none'
+            // var text = document.querySelectorAll("#comment_forms")[0]
+            // var text2 = document.querySelectorAll(".cm-s-default")[1]
+            // text.removeChild(text2)
         }
 
         $("#comment_forms").submit(function(event) {

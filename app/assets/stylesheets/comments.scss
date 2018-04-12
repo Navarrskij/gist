@@ -13,3 +13,21 @@
   border: 1px solid grey;
   border-radius: 5px
 }
+
+.CodeMirror.cm-s-rubyblue {
+  height: 800px
+}
+
+.CodeMirror {
+  overflow-y: auto;
+  overflow-x: scroll;
+  width: 1100px;
+  height: auto;
+  line-height: 1em;
+  font-family: monospace;
+  _position: relative; /* IE6 hack */
+}
+
+#comment_forms {
+  margin: 10px
+}
