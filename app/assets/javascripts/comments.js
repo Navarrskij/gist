@@ -10,11 +10,12 @@ document.addEventListener("DOMContentLoaded", function() {
         var string = document.querySelectorAll('.CodeMirror-code > div')[el.gist_row - 1]
         if (stringCountFirst >= (el.gist_row - 1)) {
           var div = document.createElement('div')
-          div.classList.add('comment')
           div.classList.add('comment_' + el.id)
-          div.innerHTML = markdown.toHTML(el.body)
+          var divChild = document.createElement('div')
+          divChild.classList.add('comment')
+          div.append(divChild)
+          divChild.innerHTML = markdown.toHTML(el.body)
           string.append(div)
-
         }
       }
     })
@@ -29,10 +30,14 @@ document.addEventListener("DOMContentLoaded", function() {
       var firstRow = firstDiv.querySelectorAll(".CodeMirror-linenumber")[0].innerHTML
       var lastRow = lastDiv.querySelectorAll(".CodeMirror-linenumber")[0].innerHTML
       var lineNumber
+      var comments = document.getElementById('comments_list').value
+      var commentsArr = JSON.parse(comments)
       commentsArr.forEach(function(el) {
         if (el.gist_row > 0 && el.gist_row >= firstRow && el.gist_row <= lastRow) {
-          var commentClass = ".comment_" + el.id
-          if ( $(commentClass).length == 0 ) {
+          // var commentClass = ".comment_" + el.id
+          var stringClass = ".comment_" + el.id
+          var commentClass = document.querySelectorAll(stringClass)
+          if ( commentClass.length == 0 ) {
             var linenumberArr = document.querySelectorAll('.CodeMirror-linenumber')
             linenumberArr.forEach(function(line) {
               if (line.innerHTML == el.gist_row) {
@@ -40,9 +45,11 @@ document.addEventListener("DOMContentLoaded", function() {
               }
             })
             var div = document.createElement('div')
-            div.classList.add('comment')
             div.classList.add('comment_' + el.id)
-            div.innerHTML = markdown.toHTML(el.body)
+            var divChild = document.createElement('div')
+            divChild.classList.add('comment')
+            div.append(divChild)
+            divChild.innerHTML = markdown.toHTML(el.body)
             lineNumber.parentElement.parentElement.append(div)
           }
         }
