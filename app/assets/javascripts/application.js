@@ -19,5 +19,7 @@
 //= require codemirror/modes/htmlmixed
 //= require codemirror/modes/javascript
 //= require codemirror/modes/ruby
+//= require codemirror/modes/markdown
 //= require contents
 //= require comments
+//= require markdown

@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
           var div = document.createElement('div')
           div.classList.add('comment')
           div.classList.add('comment_' + el.id)
-          div.innerHTML = el.body
+          div.innerHTML = markdown.toHTML(el.body)
           string.append(div)
 
         }
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
             var div = document.createElement('div')
             div.classList.add('comment')
             div.classList.add('comment_' + el.id)
-            div.innerHTML = el.body
+            div.innerHTML = markdown.toHTML(el.body)
             lineNumber.parentElement.parentElement.append(div)
           }
         }

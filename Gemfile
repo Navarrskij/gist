@@ -24,6 +24,10 @@ gem 'jquery-rails'
 gem 'simple_form', '~> 3.5.0'
 gem 'bootstrap', '~> 4.0.0'
 gem 'codemirror-rails'
+gem 'markdownjs-rails'
+gem 'redcarpet'
+gem 'albino'
+gem 'nokogiri'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

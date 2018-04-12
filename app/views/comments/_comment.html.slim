@@ -1,4 +1,4 @@
 
 div id = "comment_#{ comment.id }"
   .comment
-    = comment.body
+    = markdown(comment.body)

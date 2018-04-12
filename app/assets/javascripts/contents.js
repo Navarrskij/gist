@@ -71,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function(){
             var myCodeMirror = CodeMirror.fromTextArea(commentBody, {
                 lineWrapping: true,
                 autoRefresh: true,
+                mode: "markdown",
                 theme: "3024-day",
             });
             myCodeMirror.setSize(500, 100);
