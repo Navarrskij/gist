@@ -3,7 +3,7 @@
     <div class="navbar-header">
       <%= link_to "<i class='fa fa-history'> </i> Polacoid".html_safe, root_path, class: 'navbar-brand' %>
       <% if current_user %>
-        <%= link_to "Create content", new_content_path, class: 'btn btn-success new_gist' %>
+        <%= link_to "Create content", new_content_path, class: 'btn btn-success' %>
       <% end %>
     </div>
 
@@ -12,10 +12,10 @@
 
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-          <%= link_to 'Edit profile', edit_user_registration_path, class: 'btn btn-info new_gist' %>
-          <%= link_to 'Sign out', destroy_user_session_path, class: 'btn btn-info new_gist', method: :delete %>
+          <%= link_to 'Edit profile', edit_user_registration_path, class: 'btn btn-info' %>
+          <%= link_to 'Sign out', destroy_user_session_path, class: 'btn btn-info', method: :delete %>
         <% else %>
-          <%= link_to "Sign in", new_user_session_path, class: 'btn btn-info new_gist' %>
+          <%= link_to "Sign in", new_user_session_path, class: 'btn btn-info' %>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->

@@ -4,9 +4,9 @@ class CommentsController < ApplicationController
   def create
     @gist = Content.find(params[:content_id])
     @comment = @gist.comments.new(comment_params.merge(user: current_user))
-    @comment.save
-    # render json:  @comment
-
+    if @comment.save
+      render json:  @comment
+    end
   end
 
   def edit
