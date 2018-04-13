@@ -20,9 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     })
 
-    var scroll = document.querySelectorAll(".CodeMirror-vscrollbar")[0]
-
-    scroll.addEventListener("scroll", debounce(function() {
+    var loadComment = debounce(function() {
       var firstDiv = document.querySelectorAll('.CodeMirror-code > div')[0]
       var lengthDivs = document.querySelectorAll('.CodeMirror-code > div').length
       var lastDiv = document.querySelectorAll('.CodeMirror-code > div')[lengthDivs - 1]
@@ -52,7 +50,11 @@ document.addEventListener("DOMContentLoaded", function() {
           }
         }
       })
-    }, 100))
+    }, 100)
+    
+    var scroll = document.querySelectorAll(".CodeMirror-vscrollbar")[0]
+    scroll.addEventListener("scroll", loadComment)
+    window.addEventListener("scroll", loadComment)
   }
 
   function debounce(func, wait, immediate) {
