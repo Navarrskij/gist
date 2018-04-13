@@ -28,6 +28,7 @@ gem 'markdownjs-rails'
 gem 'redcarpet'
 gem 'albino'
 gem 'nokogiri'
+gem 'lodash-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

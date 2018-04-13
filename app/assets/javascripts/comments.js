@@ -20,10 +20,9 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     })
 
-
     var scroll = document.querySelectorAll(".CodeMirror-vscrollbar")[0]
-    scroll.addEventListener("scroll", loadComment)
-    function loadComment() {
+
+    scroll.addEventListener("scroll", debounce(function() {
       var firstDiv = document.querySelectorAll('.CodeMirror-code > div')[0]
       var lengthDivs = document.querySelectorAll('.CodeMirror-code > div').length
       var lastDiv = document.querySelectorAll('.CodeMirror-code > div')[lengthDivs - 1]
@@ -34,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function() {
       var commentsArr = JSON.parse(comments)
       commentsArr.forEach(function(el) {
         if (el.gist_row > 0 && el.gist_row >= firstRow && el.gist_row <= lastRow) {
-          // var commentClass = ".comment_" + el.id
           var stringClass = ".comment_" + el.id
           var commentClass = document.querySelectorAll(stringClass)
           if ( commentClass.length == 0 ) {
@@ -54,6 +52,21 @@ document.addEventListener("DOMContentLoaded", function() {
           }
         }
       })
-    }
+    }, 100))
+  }
+
+  function debounce(func, wait, immediate) {
+  	var timeout
+  	return function() {
+  		var context = this, args = arguments
+  		var later = function() {
+  			timeout = null
+  			if (!immediate) func.apply(context, args)
+  		}
+  		var callNow = immediate && !timeout
+  		clearTimeout(timeout)
+  		timeout = setTimeout(later, wait)
+  		if (callNow) func.apply(context, args)
+  	}
   }
 })

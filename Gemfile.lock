@@ -87,6 +87,8 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
+    lodash-rails (4.17.5)
+      railties (>= 3.1)
     loofah (2.2.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -217,6 +219,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails (~> 5.0.5)
   listen (>= 3.0.5, < 3.2)
+  lodash-rails
   markdownjs-rails
   nokogiri
   pg (~> 0.21.0)

@@ -23,3 +23,4 @@
 //= require contents
 //= require comments
 //= require markdown
+//= require lodash
