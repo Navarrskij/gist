@@ -1,5 +1,5 @@
 .container
-  .gist*{data: {gist: @gist.id}}
+  .content*{data: {content: @gist.id}}
   .form.form_show
     div.title
       = @gist.title
@@ -14,4 +14,4 @@
       .form-inputs
         = f.input :body, :input_html => {:rows => 5}, placeholder: "Input comment here", label: false
       .form-actions
-        = f.button :submit
+        = f.button :submit, :class => 'send_comment_static'

@@ -4,13 +4,12 @@
     - if @gists.present?
       - @gists.each do |gist|
         tr
-          td.title_gist
+          td.title_content
             = link_to gist.title, {action: :show, id: gist.id}
           td.buttons
-            = link_to 'Show gist', {action: :show, id: gist.id}, class: 'btn btn-success new_gist'
-            = link_to 'Edit gist', {action: :edit, id: gist.id}, class: 'btn btn-default new_gist'
-            = link_to 'Delete gist', {action: :destroy, id: gist.id}, class: 'btn btn-danger new_gist', method: :delete
+            = link_to 'Show content', {action: :show, id: gist.id}, class: 'btn btn-success'
+            = link_to 'Edit content', {action: :edit, id: gist.id}, class: 'btn btn-default'
+            = link_to 'Delete content', {action: :destroy, id: gist.id}, class: 'btn btn-danger', method: :delete
     - else
-      .no_gists
-        = "No gists"
-
+      .no_content
+        = "No Contents"
