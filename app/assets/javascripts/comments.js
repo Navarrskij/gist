@@ -1,6 +1,5 @@
 var commentsArr = []
 document.addEventListener("DOMContentLoaded", function() {
-  // var commentsArr
   if ( $('#comments_list').length > 0 ) {
     var comments = document.getElementById('comments_list').value
     commentsArr = JSON.parse(comments)
