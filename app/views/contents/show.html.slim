@@ -1,5 +1,5 @@
 .container
-  .content*{data: {content: @gist.id}}
+  .content*{data: {content: @gist.id, mode:  @gist.mode, user: "#{user_signed_in?}"}}
   .form.form_show
     div.title
       = @gist.title
@@ -9,9 +9,10 @@
     = hidden_field_tag 'comments_list', @gist.comments.to_json
     = render partial: 'comments/comments',  locals: { gist: @gist, comments: @gist.comments.gist_row_nil }
   #comment_area
-    = simple_form_for [@gist, @gist.comments.build], remote: true do |f|
-      = f.error_notification
-      .form-inputs
-        = f.input :body, :input_html => {:rows => 5}, placeholder: "Input comment here", label: false
-      .form-actions
-        = f.button :submit, :class => 'send_comment_static'
+    - if current_user
+      = simple_form_for [@gist, @gist.comments.build], remote: true do |f|
+        = f.error_notification
+        .form-inputs
+          = f.input :body, :input_html => {:rows => 5}, placeholder: "Input comment here", label: false
+        .form-actions
+          = f.button :submit, :class => 'send_comment_static'

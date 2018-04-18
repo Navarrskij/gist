@@ -6,6 +6,8 @@ class CommentsController < ApplicationController
     @comment = @gist.comments.new(comment_params.merge(user: current_user))
     if @comment.save
       render json:  @comment
+    else
+      render json: {error: comment.errors} 
     end
   end
 

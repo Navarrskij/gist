@@ -5,11 +5,15 @@
       - @gists.each do |gist|
         tr
           td.title_content
-            = link_to gist.title, {action: :show, id: gist.id}
+            = link_to gist.title, {action: :show, id: gist.uuid}
           td.buttons
-            = link_to 'Show content', {action: :show, id: gist.id}, class: 'btn btn-success'
-            = link_to 'Edit content', {action: :edit, id: gist.id}, class: 'btn btn-default'
-            = link_to 'Delete content', {action: :destroy, id: gist.id}, class: 'btn btn-danger', method: :delete
+            = link_to 'Show content', {action: :show, id: gist.uuid}, class: 'btn btn-success'
+            - if current_user && current_user.id == gist.user_id
+              = link_to 'Edit content', {action: :edit, id: gist.uuid}, class: 'btn btn-default'
+              = link_to 'Delete content', {action: :destroy, id: gist.uuid}, class: 'btn btn-danger', method: :delete
+            - if gist.is_secret
+              span.private_content="Private Content"
+              
     - else
       .no_content
         = "No Contents"

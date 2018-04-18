@@ -1,9 +1,9 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+var commentsArr = []
 document.addEventListener("DOMContentLoaded", function() {
+  // var commentsArr
   if ( $('#comments_list').length > 0 ) {
     var comments = document.getElementById('comments_list').value
-    var commentsArr = JSON.parse(comments)
+    commentsArr = JSON.parse(comments)
     commentsArr.forEach(function(el) {
       if (el.gist_row > 0) {
         var stringCountFirst = document.querySelectorAll('.CodeMirror-code > div').length
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       })
     }, 100)
-    
+
     var scroll = document.querySelectorAll(".CodeMirror-vscrollbar")[0]
     scroll.addEventListener("scroll", loadComment)
     window.addEventListener("scroll", loadComment)
