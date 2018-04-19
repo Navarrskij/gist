@@ -38,3 +38,16 @@
   background-color: #7FFFD4;
   vertical-align: middle;
 }
+
+.alert {
+  vertical-align: middle;
+  text-align: center;
+  font-size: 20px;
+}
+
+#error_explanation {
+  text-align: center;
+  li {
+    font-size: 18px;
+  }
+}

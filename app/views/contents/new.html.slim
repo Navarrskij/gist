@@ -1,6 +1,6 @@
   .container
-    = simple_form_for @content do |f|
-      = f.error_notification
+    = errors_for(@gist)
+    = simple_form_for @gist do |f|
       .form-inputs
         = f.input :is_secret, inline_label: 'Private Content', as: :boolean, checked_value: true, unchecked_value: false, input_html: { checked: true }
         = f.input :mode, collection: [['Text', 'default'], ['Ruby', 'ruby'], ['Javascript', 'javascript'], ['Html', 'htmlmixed']], selected: 1, label: 'Choose language:'

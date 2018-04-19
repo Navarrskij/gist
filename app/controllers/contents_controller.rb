@@ -9,14 +9,15 @@ class ContentsController < ApplicationController
     @gist = Content.new(gist_params.merge(user: current_user))
     if @gist.save
       @gist.reload
+      flash[:success] = "Content successfully created"
       redirect_to content_path(id: @gist.uuid)
     else
-
+      render :new
     end
   end
 
   def new
-    @content = Content.new
+    @gist = Content.new
   end
 
   def show

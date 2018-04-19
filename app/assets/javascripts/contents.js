@@ -165,8 +165,17 @@ document.addEventListener('DOMContentLoaded', function(){
           }
         })
       } else {
-        alert("Comment can not be empty")
+        var div = document.createElement('div')
+        div.classList.add('alert', 'alert-danger')
+        div.setAttribute("role", "alert")
+        div.innerHTML = "Comments body can't be blank"
+        let comments = document.querySelectorAll(".comments")[0]
+        comments.append(div)
       }
     })
+  }
+  var alert = document.querySelectorAll(".alert_create")[0]
+  if (alert) {
+    $('.alert_create').fadeOut(3000, function(){ $(this).remove()})
   }
 }, false)
